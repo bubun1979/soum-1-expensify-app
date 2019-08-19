@@ -1,13 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ExpenseListItem from './ExpenseListItem';
-import ExpenseFilters from './ExpenseFilters'
 import selector from '../selectors/expenses'
 
 const ExpenseList = (props) => (
     <div>
         <h3>Expense List</h3>
-        <ExpenseFilters />
+        
         <table>
             <thead>
                 <tr>
