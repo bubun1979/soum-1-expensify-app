@@ -16,12 +16,72 @@ firebase.initializeApp(firebaseConfig);
 // getting the reference of the database service
 const database = firebase.database()
 
+//child_removed
+database.ref('expenses').on('child_removed', (snapshot) => {
+    console.log(spanshot.val())
+})
+
+//child_changed
+database.ref('expenses').on('child_changed', (snapshot) => {
+    console.log(snapshot.val())
+})
+
+//child_added
+database.ref('expenses').on('child_added', (snapshot) => {
+    console.log(snapshot.val())
+})
+
+/* database.ref('expenses').on('value', (snapshot) => {
+    const expenses = []
+
+    snapshot.forEach((childSnapshot) => {
+        expenses.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+        })
+    })
+
+    console.log(expenses)
+}, (error) => {
+    console.log('Error: ', error)
+}) */
+
+/* database.ref('expenses').push({
+    description: 'Rent',
+    note: 'Jan rent',
+    amount: 3456.34,
+    createdAt: 44567
+})
+
+database.ref('expenses').push({
+    description: 'Water Bill',
+    note: 'March Bill',
+    amount: 4456.34,
+    createdAt: 55674
+})
+
+database.ref('expenses').push({
+    description: 'Gas Bill',
+    note: 'May Bill',
+    amount: 33694.55,
+    createdAt: 77645
+}) */
+
+/* database.ref().on('value', (snapshot) => {
+    console.log(`${snapshot.val().name} is a ${snapshot.val().job.title} at ${snapshot.val().job.company}` )
+}) */
+
+/* database.ref().on('value', (snapshot) => {
+    console.log(snapshot.val())
+}) */
+
+
 //fetching all data
-database.ref()
+/* database.ref()
     .once('value')
     .then((snapshot) => snapshot.val())
     .then((data) => console.log(data))
-    .catch((e) => console.log('Error fetching data: ', e))
+    .catch((e) => console.log('Error fetching data: ', e)) */
 
 /* database.ref().set({
     name: 'Soumyajit Ghosh',
